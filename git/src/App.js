@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React from 'react'
+import Followers from './Followers'
 import './App.css';
 
 
@@ -40,19 +41,15 @@ class App extends React.Component{
 
   render(){
     return(
-      <div>
+      
         <div>
         <h1>My Git Card</h1>
-        <p>{this.state.data.login}</p>
-        <img src = {this.state.data.avatar_url} alt='Robert'/>
-        <p>{this.state.data.name}</p>
-        <p>{this.state.data.location}</p>
-        <p>{this.state.data.followers}</p>
-        {this.state.followers.map(follower=>{
-          return <p key={follower.id}>{follower.login}</p> 
-        })}
-        </div>
-
+          <p>{this.state.data.login}</p>
+          <img src = {this.state.data.avatar_url} alt='Robert'/>
+          <p>{this.state.data.name}</p>
+          <p>{this.state.data.location}</p>
+          <p>{this.state.data.followers}</p>
+          <Followers followers={this.state.followers}/>
       </div>
     )
   }
